@@ -1,43 +1,22 @@
-# Project Name
+# Tic Tac Toe - Ruby
 
-> One paragraph statement about the project.
+> This is the collaborative project between [@Kyle-Law](https://github.com/Kyle-Law) and [@tirthajyoti-ghosh](https://github.com/tirthajyoti-ghosh) to build tic-tac-toe game on the command line. Two human players can play against each other and the board is displayed in between turns. 
 
-![screenshot](./app_screenshot.png)
+The main goal is to put into practice the main concepts of Object Oriented Programming in Ruby programming language. Particularly, classes and access to their attributes.
 
-Additional description about the project and its features.
+![image](https://user-images.githubusercontent.com/55923773/76314318-85497880-6311-11ea-8fae-55bd18eebc9d.png)
+
 
 ## Built With
 
-- Major languages,
-- frameworks,
-- technologies used
-
-## Live Demo
-
-[Live Demo Link](https://livedemo.com)
-
-
-## Getting Started
-
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
-
-
-To get a local copy up and running follow these simple example steps.
-
-### Prerequisites
-
-### Setup
-
-### Install
-
-### Usage
-
-### Run tests
+- Ruby
+- Ruby Stickler
 
 ### Deployment
-
-
+1) Clone the repo to your local folder.
+2) cd to the folder.
+3) Run `ruby bin/main.rb`
+4) Enjoy!
 
 ## Authors
 
@@ -47,17 +26,17 @@ To get a local copy up and running follow these simple example steps.
 - Twitter: [@Kyle-Law](https://twitter.com/ZhunKhing)
 - Linkedin: [Kyle law](https://www.linkedin.com/in/kyle-lawzhunkhing/)
 
-👤 **Author2**
+👤 **Tirthajyoti Ghosh**
 
-- Github: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- Linkedin: [linkedin](https://linkedin.com/linkedinhandle)
+- Github: [@tirthajyoti-ghosh](https://github.com/tirthajyoti-ghosh)
+- Twitter: [@terrific_ghosh](https://twitter.com/terrific_ghosh)
+- Linkedin: [tirthajyoti-ghosh](https://www.linkedin.com/in/tirthajyoti-ghosh-370544199/) 
 
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome!
 
-Feel free to check the [issues page](issues/).
+Feel free to check the [issues page](https://github.com/Kyle-Law/tictactoe-ruby/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc).
 
 ## Show your support
 
@@ -65,9 +44,8 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
+- Microverse
+- The Odin Project
 
 ## 📝 License
 
