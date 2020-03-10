@@ -10,6 +10,8 @@ player2 = gets.chomp
 
 player = TicTacToe.new(player1,player2)
 
+puts player.display_rule
+puts player.display_board
 loop do
   
   # Input Player X
@@ -20,7 +22,7 @@ loop do
     player1_move = gets.chomp.to_i
   end
   player.player_move("X", player1_move)
-  player.display_board
+  puts player.display_board
   if player.win?("X")
     puts "Hurray! #{player1} has won"
   elsif player.draw?
@@ -35,7 +37,7 @@ loop do
     player2_move = gets.chomp.to_i
   end
   player.player_move("O", player2_move)
-  player.display_board
+  puts player.display_board
   if player.win?("O")
     puts "Hurray! #{player2} has won"
   elsif player.draw?

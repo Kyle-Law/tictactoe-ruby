@@ -9,13 +9,10 @@ class TicTacToe
         @playerX_cells = []
         @playerO_cells = []
         
-        self.display_rule
-        self.display_board
     end
   
     def display_rule
-      puts "Rule: #{@player1} gets the first chance to select a cell from the board. "
-      puts "Then #{@player2} can select a cell. Selection of cell is done by the cell number."
+      rule = "Rule: #{@player1} gets the first chance to select a cell from the board. \nThen #{@player2} can select a cell. Selection of cell is done by the cell number."
     end
   
     def valid_input?(input)
@@ -31,11 +28,7 @@ class TicTacToe
     end
   
     def display_board
-      puts " #{@board[0]} | #{@board[1]} | #{@board[2]} "
-      puts "---+---+---"
-      puts " #{@board[3]} | #{@board[4]} | #{@board[5]} "
-      puts "---+---+---"
-      puts " #{@board[6]} | #{@board[7]} | #{@board[8]} "
+      board = " #{@board[0]} | #{@board[1]} | #{@board[2]} \n---+---+---\n #{@board[3]} | #{@board[4]} | #{@board[5]} \n---+---+---\n #{@board[6]} | #{@board[7]} | #{@board[8]} "
     end
   
     def win?(player)
