@@ -13,11 +13,10 @@ class Game
     @available_cells.delete(move)
   end
 
-  def win?(player)
+  def win?(array)
     winning_condition = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [1, 4, 7], [2, 5, 8], [3, 6, 9], [1, 5, 9], [3, 5, 7]]
-    cells = player == 'X' ? @player1_cells : @player2_cells
     winning_condition.any? do |cond|
-      (cells & cond).length == 3
+      (array & cond).length == 3
     end
   end
 
