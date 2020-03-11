@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
-require_relative '../lib/game.rb'
-require_relative '../lib/board.rb'
-require_relative '../lib/player.rb'
+require_relative '../lib/Game.rb'
+require_relative '../lib/Board.rb'
+require_relative '../lib/Player.rb'
 title = <<-MLS
 
  _____ _        _____             _____           
