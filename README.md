@@ -10,7 +10,7 @@ The main goal is to put into practice the main concepts of Object Oriented Progr
 ## Built With
 
 - Ruby
-- Ruby Stickler
+- Rubocop
 
 ### Deployment
 1) Clone the repo to your local folder.

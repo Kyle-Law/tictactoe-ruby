@@ -1,15 +1,15 @@
 #!/usr/bin/env ruby
-require_relative '../lib/Game.rb'
-require_relative '../lib/Board.rb'
-require_relative '../lib/Player.rb'
-title = <<-MLS
+require_relative '../lib/game.rb'
+require_relative '../lib/board.rb'
+require_relative '../lib/player.rb'
+title = <<~MLS
 
- _____ _        _____             _____           
-/__   (_) ___  /__   \\__ _  ___  /__   \\___   ___ 
-  / /\\/ |/ __|   / /\\/ _` |/ __|   / /\\/ _ \\ / _ \\
- / /  | | (__   / / | (_| | (__   / / | (_) |  __/
- \\/   |_|\\___|  \\/   \\__,_|\\___|  \\/   \\___/ \\___|
-                                                  
+   _____ _        _____             _____
+  /__   (_) ___  /__   \\__ _  ___  /__   \\___   ___
+    / /\\/ |/ __|   / /\\/ _` |/ __|   / /\\/ _ \\ / _ \\
+   / /  | | (__   / / | (_| | (__   / / | (_) |  __/
+   \\/   |_|\\___|  \\/   \\__,_|\\___|  \\/   \\___/ \\___|
+
 MLS
 puts title
 puts 'Welcome to Tic Tac Toe!'
@@ -21,13 +21,13 @@ player2 = gets.chomp
 
 game = Game.new
 board = Board.new
-playerX = Player.new
-playerO = Player.new
+player_x = Player.new
+player_o = Player.new
 
 puts <<~MLS
-      Rule: #{player1} gets the first chance to select a cell from the board.
-      Then #{player2} can select a cell. Selection of cell is done by the cell number.
-    MLS
+  Rule: #{player1} gets the first chance to select a cell from the board.
+  Then #{player2} can select a cell. Selection of cell is done by the cell number.
+MLS
 puts board.display_board
 loop do
   # Input Player X
@@ -40,17 +40,15 @@ loop do
   end
   game.delete_available_cells(player1_move)
 
-  playerX.move(player1_move)
+  player_x.move(player1_move)
 
   board.board_config('X', player1_move)
   puts board.display_board
-  if game.win?(playerX.cells)
-    puts "Hurray! #{player1} has won"
-  elsif game.draw?
-    puts 'It\'s a draw.'
-  end
 
-  break if game.win?(playerX.cells) || game.draw?
+  puts "Hurray! #{player1} has won" if game.win?(player_x.cells)
+  puts 'It\'s a draw.' if game.draw? && !game.win?(player_x.cells)
+
+  break if game.win?(player_x.cells) || game.draw?
 
   # Input Player O
   puts "#{player2}, select a cell from the above board"
@@ -62,16 +60,13 @@ loop do
   end
   game.delete_available_cells(player2_move)
 
-  playerO.move(player2_move)
+  player_o.move(player2_move)
 
   board.board_config('O', player2_move)
   puts board.display_board
 
-  if game.win?(playerO.cells)
-    puts "Hurray! #{player2} has won"
-  elsif game.draw?
-    puts 'It\'s a draw.'
-  end
+  puts "Hurray! #{player2} has won" if game.win?(player_o.cells)
+  puts 'It\'s a draw.' if game.draw? && !game.win?(player_o.cells)
 
-  break if game.win?(playerO.cells) || game.draw?
+  break if game.win?(player_o.cells) || game.draw?
 end
