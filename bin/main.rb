@@ -10,7 +10,10 @@ player2 = gets.chomp
 
 player = TicTacToe.new(player1, player2)
 
-puts player.display_rule
+puts <<~MLS
+      Rule: #{@player1} gets the first chance to select a cell from the board.
+      Then #{@player2} can select a cell. Selection of cell is done by the cell number.
+    MLS
 puts player.display_board
 loop do
   # Input Player X
