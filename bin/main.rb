@@ -24,11 +24,26 @@ board = Board.new
 player_x = Player.new
 player_o = Player.new
 
+puts
 puts <<~MLS
   Rule: #{player1} gets the first chance to select a cell from the board.
   Then #{player2} can select a cell. Selection of cell is done by the cell number.
 MLS
+
+puts
+puts <<~MLS
+  \'X\' is for #{player1}
+  \'O\' is for #{player2}
+MLS
+
+puts
+
+puts "This is an empty board:"
 puts board.display_board
+
+puts
+puts "Press any key to start the game."
+gets.chomp
 loop do
   # Input Player X
   puts "#{player1}, select a cell from the above board"
