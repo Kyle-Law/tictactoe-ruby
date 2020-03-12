@@ -1,74 +1,72 @@
 #!/usr/bin/env ruby
+require_relative '../lib/game.rb'
+require_relative '../lib/board.rb'
+require_relative '../lib/player.rb'
+title = <<~MLS
 
-# Functions used in mock logic. These will be removed in milestone 3
-def display_board(array) end
+   _____ _        _____             _____
+  /__   (_) ___  /__   \\__ _  ___  /__   \\___   ___
+    / /\\/ |/ __|   / /\\/ _` |/ __|   / /\\/ _ \\ / _ \\
+   / /  | | (__   / / | (_| | (__   / / | (_) |  __/
+   \\/   |_|\\___|  \\/   \\__,_|\\___|  \\/   \\___/ \\___|
 
-def win?(array) end
+MLS
+puts title
+puts 'Welcome to Tic Tac Toe!'
 
-puts 'Rule: Player 1 gets the first chance to select a cell from the above board. '
-puts 'Then Player 2 can select a cell. Selection of cell is done by the cell number.'
+puts 'Please enter Player 1 name'
+player1 = gets.chomp
+puts 'Please enter Player 2 name'
+player2 = gets.chomp
 
-puts 'Tic Tac Toe board: '
-puts ' 1 | 2 | 3 '
-puts '---+---+---'
-puts ' 4 | 5 | 6 '
-puts '---+---+---'
-puts ' 7 | 8 | 9 '
+game = Game.new
+board = Board.new
+player_x = Player.new
+player_o = Player.new
 
-player1 = []
-player2 = []
-available_cells = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-
+puts <<~MLS
+  Rule: #{player1} gets the first chance to select a cell from the board.
+  Then #{player2} can select a cell. Selection of cell is done by the cell number.
+MLS
+puts board.display_board
 loop do
-  # Input Player 1
-  puts 'Player 1, select a cell from the above board'
+  # Input Player X
+  puts "#{player1}, select a cell from the above board"
   player1_move = gets.chomp.to_i
-  # Check if Player 1 is trying to put a cell no. that is already filled
-  # If yes, then display an error message and ask Player 1 to retry
-  until available_cells.include?(player1_move)
+
+  until game.valid_input?(player1_move)
     puts 'Error! Please enter a cell number that is not filled.'
     player1_move = gets.chomp.to_i
   end
-  # Else add player1_move to player1 array
-  player1 << player1_move
-  # Then delete that cell no. from available_cells array
-  available_cells.delete(player1_move)
-  # Now the board is displayed with Player 1's move i.e. X in the given cell no.
-  # by calling the display_board method with player1 array as the argument
-  display_board(player1)
-  # Check if Player 1 won
-  # If yes, display message and break loop
-  # Else check if available_cells is empty which means the board is full and nobody won, then break loop
-  if win?(player1)
-    puts 'Hurray! Player 1 has won'
-  elsif available_cells.empty?
-    puts 'Its a draw.'
-  end
-  break if win?(player1) || available_cells.empty?
+  game.delete_available_cells(player1_move)
 
-  # Input Player 2
-  puts 'Player 2, select a cell from the above board'
+  player_x.move(player1_move)
+
+  board.board_config('X', player1_move)
+  puts board.display_board
+
+  puts "Hurray! #{player1} has won" if game.win?(player_x.cells)
+  puts 'It\'s a draw.' if game.draw? && !game.win?(player_x.cells)
+
+  break if game.win?(player_x.cells) || game.draw?
+
+  # Input Player O
+  puts "#{player2}, select a cell from the above board"
   player2_move = gets.chomp.to_i
-  # Check if Player 2 is trying to put a cell no. that is already filled
-  # If yes, then display an error message and ask Player 2 to retry
-  until available_cells.include?(player2_move)
+
+  until game.valid_input?(player2_move)
     puts 'Error! Please enter a cell number that is not filled.'
     player2_move = gets.chomp.to_i
   end
-  # Else add player2_move to player1 array
-  player2 << player2_move
-  # Then delete that cell no. from available_cells array
-  available_cells.delete(player2_move)
-  # Now the board is displayed with Player 2's move i.e. O in the given cell no.
-  # by calling the display_board method with player2 array as the argument
-  display_board(player2)
-  # Check if Player 2 won
-  # If yes, display message and break loop
-  # Else check if available_cells is empty which means the board is full and nobody won, then break loop
-  if win?(player2)
-    puts 'Hurray! Player 2 has won'
-  elsif available_cells.empty?
-    puts 'Its a draw.'
-  end
-  break if win?(player2) || available_cells.empty?
+  game.delete_available_cells(player2_move)
+
+  player_o.move(player2_move)
+
+  board.board_config('O', player2_move)
+  puts board.display_board
+
+  puts "Hurray! #{player2} has won" if game.win?(player_o.cells)
+  puts 'It\'s a draw.' if game.draw? && !game.win?(player_o.cells)
+
+  break if game.win?(player_o.cells) || game.draw?
 end
