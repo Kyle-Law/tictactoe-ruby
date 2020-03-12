@@ -38,11 +38,11 @@ MLS
 
 puts
 
-puts "This is an empty board:"
+puts 'This is an empty board:'
 puts board.display_board
 
 puts
-puts "Press any key to start the game."
+puts 'Press any key to start the game.'
 gets.chomp
 loop do
   # Input Player X
