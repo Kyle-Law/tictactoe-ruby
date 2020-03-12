@@ -4,7 +4,7 @@
 
 The main goal is to put into practice the main concepts of Object Oriented Programming in Ruby programming language. Particularly, classes and access to their attributes.
 
-![image](https://user-images.githubusercontent.com/55923773/76424191-decda800-63e2-11ea-9f7d-3b2fa04f0ddb.png)
+![image](https://user-images.githubusercontent.com/55923773/76505809-070de300-6485-11ea-9e0a-cb20a3094f1b.png)
 
 
 ## Built With
