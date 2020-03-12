@@ -25,16 +25,15 @@ The main goal is to put into practice the main concepts of Object Oriented Progr
     └── game.rb
     └── player.rb
 ```
+### Game Instructions
+
+Its a two player game. Each player can select a token - `X`, `O`. The first player gets the `X` token and `O` is reserved for the second player.
 
 ### Deployment
 1) Clone the repo to your local folder.
 2) cd to the folder.
 3) Run `ruby bin/main.rb`
 4) Enjoy!
-
-### Game Instructions
-
-Its a two player game. Each player can select a token - `X`, `O`. The first player gets the `X` token and `O` is reserved for the second player. 
 
 ## Authors
 
