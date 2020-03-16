@@ -37,6 +37,14 @@ Visit this [Wikipedia](https://en.wikipedia.org/wiki/Tic-tac-toe) page to learn 
 3) Run `ruby bin/main.rb`
 4) Enjoy!
 
+### Testing
+
+1) Clone the repo to your local folder.
+2) cd to the folder.
+3) install rspec by `gem install rspec`
+4) Run `rspec`.
+5) `19 examples, 0 failures` will be output.
+
 ## Authors
 
 👤 **Kyle Law**
