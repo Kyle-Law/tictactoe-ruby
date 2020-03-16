@@ -41,8 +41,24 @@ RSpec.describe Game do
     end
 
     describe 'win?' do
-        it 'returns true if the array of player moves is in winning_condition array' do
+        it 'returns true for winning combination [9,7,8]' do
             expect(game.win?([9,7,8])).to eql(true)
+        end
+
+        it 'returns true for winning combination [1,2,3]' do
+            expect(game.win?([1,2,3])).to eql(true)
+        end
+
+        it 'returns true for winning combination [3,5,7]' do
+            expect(game.win?([3,5,7])).to eql(true)
+        end
+
+        it 'returns true for winning combination [1,5,9]' do
+            expect(game.win?([1,5,9])).to eql(true)
+        end
+
+        it 'returns true for winning combination [2,5,8]' do
+            expect(game.win?([2,5,8])).to eql(true)
         end
 
         it 'returns false if the array of player moves is not in winning_condition array' do
@@ -58,6 +74,22 @@ RSpec.describe Game do
 
         it 'returns false if the @available_cells array is not empty' do
             expect(game.draw?).to eql(false)
+        end
+    end
+end
+
+RSpec.describe Player do
+    subject {Player.new}
+    describe '#move' do
+        it 'checks if cells is appended with player\'s move' do
+            subject.move(1)
+            expect(subject.cells).to eql([1])
+        end
+
+        it 'checks if cells is appended with player\'s move' do
+            subject.move(1)
+            subject.move(5)
+            expect(subject.cells).to eql([1,5])
         end
     end
 end
